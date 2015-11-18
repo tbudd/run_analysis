@@ -60,5 +60,6 @@ run_analysis <- function(){
   
   ## Return averages for each variable by activity and subject
   
+  
 
 }
