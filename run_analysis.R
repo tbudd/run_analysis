@@ -42,9 +42,9 @@ run_analysis <- function(){
 
   ## Build up the "extracted" matrix with only the std and mean columns, plus the correct column names "cols"  
   for(i in 1:col_cnt){
-  if((grepl("mean",features[i,2]) || grepl("std",features[i,2])) && !grepl("meanFreq",features[i,2])){
-    extracted<-cbind(extracted,merged[,i+2])
-    cols<-c(cols,features[i,2])
+    if(grepl("mean\\(",features[i,2]) || grepl("std\\(",features[i,2])){
+      extracted<-cbind(extracted,merged[,i+2])
+      cols<-c(cols,features[i,2])
   }
     i<-i+1
   }
@@ -63,8 +63,6 @@ run_analysis <- function(){
   
   ## Remove the now superfluous act, which the tables above were joined on
   result<-select(result,-act)
-  
-  browser()
   
   ## Tidy the data and calculate the averages for each variable by activity and subject
   means = aggregate(result, by=list(activity=result$activity, subject=result$subject), mean)
