@@ -49,7 +49,7 @@ Some information on the variable including:
 If available, some additional notes on the variable not covered elsewehere. If no notes are present leave this section out.
 
 ##Sources
-This codebook was created using the "Codebook Template" from the "Data Science Specialization" website, "Getting and Cleaning Data" page here:  http://datasciencespecialization.github.io/getclean/
+This codebook was created using the "Codebook Template" from the "Data Science Specialization" website, ["Getting and Cleaning Data" page](http://datasciencespecialization.github.io/getclean/)
 
 ##Annex
 If you used any code in the codebook that had the echo=FALSE attribute post this here (make sure you set the results parameter to 'hide' as you do not want the results to show again)
