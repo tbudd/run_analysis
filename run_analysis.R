@@ -65,14 +65,17 @@ run_analysis <- function(){
   result<-select(result,-act)
   
   ## Tidy the data and calculate the averages for each variable by activity and subject
-  means = aggregate(result, by=list(activity=result$activity, subject=result$subject), mean)
+  means = aggregate(result, by=list(subject=result$subject, activity=result$activity), mean)
   
   ## remove extraneous rows from aggregate
   means[,3] <- NULL
   means[,3] <- NULL
+  
+  ## Sort the result by subject, then activity
+  means <- means[with(means, order(subject, activity)),]
 
   ## Write the result to a file
-  write.table(means, "means.txt", sep="\t", row.names = FALSE)
+  write.table(means, "tidy_data.txt", sep="\t", row.names = FALSE)
   
   ## Return the result
   means
