@@ -8,15 +8,36 @@ output:
 ---
 
 ## Project Description
-Short description of the project
+The assignment uses data from the [Human Activity Recognition (HAR) Using Smart Phones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+
+The data from the HAR project are cleaned and made tidy. Then the averages of the mean() and std() columns are returned grouped by subject (participant) and activity.
 
 ##Study design and data processing
+The study design and initial data processing are described on the [HAR site](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+
+The data were further processed to create a tidy dataset using R (and the dplyr package) as described below under "Creating the tidy datafile". The averages of the mean() and std() columns are returned grouped by subject (participant) and activity.
 
 ###Collection of the raw data
-Description of how the data was collected.
+Collection of the raw data is described under the Data Set Information on the [HAR site](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 ###Notes on the original (raw) data 
-Some additional notes (if avaialble, otherwise you can leave this section out).
+The raw data set was downloaded from here: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+Eight files were processed from the raw data to create the tidy data with averages:
+- activity_labels.txt
+- features.txt
+- subject_train.txt
+- y_train.txt
+- x_train.txt
+- subject_test.txt
+- y_test.txt
+- x_test.txt
+
+Two files in the root of the dataset directory were used for reference
+- README.txt
+- features_info.txt
+
+All other files (e.g., inertial signals) in the dataset were ignored as they were unnecessary for the tidy data of averages.
 
 ##Creating the tidy datafile
 
