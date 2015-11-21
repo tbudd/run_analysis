@@ -242,7 +242,7 @@ A number respresenting the processed specific measurement from either the accele
 - Class:      num
 - Values:     -1 through 1
 - Units:      none, because the estimates of the measures were normalized to be between -1 and 1 inclusive.
-- Schema:     \<domain\>\<acceleration vector\>\<sensor\>\<specific measure\>'-'\<function\>-\<axis\>
+- Schema:     \<domain\>\<acceleration vector\>\<sensor\>\<specific measure\>\<function\><axis\>
 
 Schema notes:
 
@@ -254,7 +254,7 @@ Schema notes:
 
 \<specific measure\> (optional, either Jerk or Mag or both or none) Jerk is the derivative of acceleration with respect to time. Mag is the magnitude of the X,Y,Z vectors for the measure.
 
-\<function\> either mean() or std() for the mean value or standard deviation, respectively. Only columns ending in mean() and std() were included in the result, because the assignment requested only means and standard deviations of the measurements. For example, MeanFreq() was not used, because MeanFreq() is defined in the frequency_info.txt file as "the weighted average of the frequency components to obtain a mean frequency," which is not the simple mean.
+\<function\> either Mean or Std for the mean value or standard deviation, respectively. Only columns ending in mean() and std() were included in the result, because the assignment requested only means and standard deviations of the measurements. For example, MeanFreq() was not used, because MeanFreq() is defined in the frequency_info.txt file as "the weighted average of the frequency components to obtain a mean frequency," which is not the simple mean.
 
 \<axis\> X,Y,or Z depending on the direction of the force vector. Specific measures that include Mag do not have an X,Y, or Z suffix, because the magnitude is a scalar.
 

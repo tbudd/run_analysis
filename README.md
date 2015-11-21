@@ -33,12 +33,12 @@ Notes:
 
 - Only columns ending in mean() and std() were included in the result, because the assignment requested means and standard deviations of the measurements. For example, MeanFreq() was not used, because MeanFreq() is defined in the frequency_info.txt file as "the weighted average of the frequency components to obtain a mean frequency," which is not the simple mean.
 
-- The column names were taken from the features.txt files verbatim. While longer column names could have been used, shorter names make for narrower columns, allowing multiple columns to be viewed at once. It is a trade-off. The original data author did a reasonably good job with the acronyms, and some of them are already quite long (36 characters). If we used  full English descriptions for each variable, some of the variable names would be twice as long, e.g, TimeDomainGravityAccelerationMagnitudeStandardDeviationXaxis. The code book contains complete descriptions of the column headings in the resulting tidy_data.txt.
+- The column names were taken from the features.txt files verbatim after stripping out "()"s and "-"s". In order to make reading the output back into a data.frame more robust, the stripping was done, because read.table() requires a special parameter to read files in with special characters in the column names. Additionally, mean and std were capitalized to improve readability. While longer column names could have been used, shorter names make for narrower columns, allowing multiple columns to be viewed at once. It is a trade-off. The original data author did a reasonably good job with the acronyms, and some of them are already quite long (36 characters). If we used  full English descriptions for each variable, some of the variable names would be twice as long, e.g, TimeDomainGravityAccelerationMagnitudeStandardDeviationXaxis. The code book contains complete descriptions of the column headings in the resulting tidy_data.txt.
 
 - The tidy data output is in the wide form (unstacked), where each variable attribute for a subject is in a separate column. Subject and activity do not have meaningful averages, so the columns displaying those averages were removed.
 
 The output can be perused using this code:
 ```{r, echo=FALSE}
-data <- read.table(file_path, header = TRUE)
+data <- read.table("tidy_data.txt", header = TRUE, stringsAsFactors = FALSE)
 View(data)
 ```

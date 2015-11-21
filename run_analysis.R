@@ -55,6 +55,17 @@ run_analysis <- function(){
   ## Add the "subj" and "act" names to the cols vector
   cols<-c("subject","act",cols)
   
+  ## Strip () from column names. Even though it is easier to see the functions with the (),
+  ## read.table will be read in the columns correctly with the right parameter if ()s are left in.
+  cols <- gsub("\\(\\)", "", cols)
+  
+  ## Strip "-" as well
+  cols <- gsub("\\-", "", cols)
+  
+  #Capitalize the 1st letter in mean and std to make the columns more readable
+  cols <- gsub("mean", "Mean", cols)
+  cols <- gsub("std", "Std", cols)
+  
   ## Name the columns correctly using the built up column vector
   colnames(extracted)<-cols
   
