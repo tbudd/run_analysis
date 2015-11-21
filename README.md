@@ -29,7 +29,7 @@ run_analysis computes the average of the mean() and std() variables in the UCI H
 Notes:
 - Inertial data were not included from the dataset, because they were not necessary to calculate the averages of the means and standard deviations.
 
-- Only columns ending in mean() and std() were included in the result, because the assignment requested means and standard deviations. MeanFreq() is defined in the frequency_infot.txt file as "the Weighted average of the frequency components to obtain a mean frequency," which is not exactly the same as mean.
+- Only columns ending in mean() and std() were included in the result, because the assignment requested means and standard deviations of the measurements. MeanFreq() is defined in the frequency_infot.txt file as "the Weighted average of the frequency components to obtain a mean frequency," which is not exactly the same as mean.
 
 - The column names were taken from the features.txt files verbatim. While longer column names could have been used, shorter names make for narrower columns, allowing more to be viewed at once. It is a trade off. The original data author did a reasonably good job with the acronyms, and some of them are already quite long (36 chars). The code book contains complete descriptions if there is any confusion.
 

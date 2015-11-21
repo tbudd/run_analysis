@@ -76,6 +76,8 @@ The tidy data output is in the wide form (unstacked), where each variable attrib
 
 There are 30 subjects in the data set. The accelerometer and gyroscope averages are presented for each subject in each of the 6 activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING), sorted first by subject, then by activity.
 
+Below is the str() of the dataset:
+
 'data.frame':	180 obs. of  68 variables:
  $ subject                    : int  1 2 3 4 5 6 7 8 9 10 ...
 
@@ -213,7 +215,7 @@ There are 30 subjects in the data set. The accelerometer and gyroscope averages 
 
  $ fBodyBodyGyroJerkMag-std() : num  -0.933 -0.989 -0.983 -0.983 -0.983 ...
  
-The variables are described in detail below. For further information, refer to the dataset README.txt and feature_info.txt files.
+The variables are described in detail below. For further information, refer to the dataset README.txt and feature_info.txt files in the root directory of the HAR data.
 
 ###Variable 1 (subject)
 A numeric representation of the subject who's accelerometer and gyroscope measurements are in each row.
@@ -230,10 +232,10 @@ A character string representation of the activity the subject was performing dur
 - Schema:     none
 
 ###Variables 3-68 (named according to schema below)
-A character string representation of the activity the subject was performing during the accelerometer and gyroscope measurements.
+A number respresenting the processed specific measurement from either the accelerometer or gyroscope. For details on the processing refer to the dataset README.txt and feature_info.txt files in the root directory of the HAR data.
 - Class:      num
 - Values:     -1 through 1
-- Units:      none???
+- Units:      none, because the estimates of the measures were normalized to be between -1 and 1 inclusive.
 - Schema:     \<domain\>\<acceleration vector\>\<sensor\>\<specific measure\>'-'\<function\>-\<axis\>
 
 Schema notes:
@@ -243,15 +245,13 @@ Schema notes:
 
 \<sensor\> either Acc for accelerometer or Gyro for gyroscope
 
-\<specific measure\> (optional, either Jerk or MAg or both or none) Jerk is the derivative of acceleration with respect to time. Mag is the magnitude of the X,Y,Z vectors for the measure
+\<specific measure\> (optional, either Jerk or Mag or both or none) Jerk is the derivative of acceleration with respect to time. Mag is the magnitude of the X,Y,Z vectors for the measure
 
-\<function\> either mean() or std() for the mean value or standard deviation respectively
+\<function\> either mean() or std() for the mean value or standard deviation respectively. Only columns ending in mean() and std() were included in the result, because the assignment requested means and standard deviations of the measurements. MeanFreq() is defined in the frequency_infot.txt file as "the Weighted average of the frequency components to obtain a mean frequency," which is not exactly the same as mean.
 
 \<axis\> X,Y,Z depending on the direction of the force vector. Specific functions ending in Mag do not have an X,Y, or Z suffix, because the magnitude is a scalar.
 
 ##Sources
 This codebook was created using the "Codebook Template" from the "Data Science Specialization" website, ["Getting and Cleaning Data" page](http://datasciencespecialization.github.io/getclean/)
 
-##Annex
-If you used any code in the codebook that had the echo=FALSE attribute post this here (make sure you set the results parameter to 'hide' as you do not want the results to show again)
 
