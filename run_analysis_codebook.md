@@ -70,7 +70,8 @@ Refer to the run_analysis [README.txt](https://github.com/tbudd/run_analysis/blo
 ##Description of the variables in the tiny_data.txt file
 
  - Dimensions of the dataset - 180 obs. of 68 variables
- - Summary of the data:
+
+###Summary of the data
  
 The tidy data output is in the wide form (unstacked), where each variable attribute for a subject is in a separate column. Each of the variables (with the exceptions of subject and activity) is an average of smart phone accelerometer and gyroscope measurements grouped by subject number and activity.
 
