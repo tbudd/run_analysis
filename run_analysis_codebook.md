@@ -8,58 +8,60 @@ output:
 ---
 
 ## Project Description
-The assignment uses data from the [Human Activity Recognition (HAR) Using Smart Phones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+The assignment uses data from the [Human Activity Recognition (HAR) Using Smart Phones Data Set.](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 The data from the HAR project are cleaned and made tidy. Then the averages of the mean() and std() columns are returned grouped by subject (participant) and activity.
 
 ##Study design and data processing
-The study design and initial data processing are described on the [HAR site](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+The study design and initial data processing are described on the [HAR site.](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
-Further details are provided in the README.txt file supplied with the dataset in the root directory of the data.
+Further details are provided in the README.txt and the features_info.txt files supplied with the dataset in the root directory.
 
 The data were further processed to create a tidy dataset using R (and the dplyr package) as described below under "Creating the tidy datafile". The averages of the mean() and std() columns are returned grouped by subject (participant) and activity.
 
 ###Collection of the raw data
-Collection of the raw data is described under the Data Set Information on the [HAR site](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+The HAR dataset is a collection of accelerometer and gyroscope measurements from subjects wearing a smartphone on their waists while doing various activities.
+
+Collection of the raw data is described in detail under the Data Set Information on the [HAR site.](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 ###Notes on the original (raw) data 
 The raw data set was downloaded from [here.](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
 Eight files were processed from the raw data to create the tidy data with averages:
-- activity_labels.txt - contains the test descriptions of the activities and an index column 
+- activity_labels.txt - contains the text descriptions of the activities and an index column 
 - features.txt - contains the text descriptions of the features (accelerometer and gyroscope measurements) and an index column
 - subject_train.txt - the subject #s corresponding to the training data observations
 - y_train.txt - the activity #s corresponding to what the subject was doing during each training data observation 
 - x_train.txt - the columns correspond to the features in features.txt. Rows are training data observations
-- subject_test.txt - the subject #s corresponding to the test data
+- subject_test.txt - the subject #s corresponding to the test data observations
 - y_test.txt - the activity #s corresponding to what the subject was doing during each test data observation
 - x_test.txt - the columns correspond to the features in features.txt. Rows are test data observations
 
-Two files in the root of the dataset directory were used for reference
-- README.txt - provides details of the experiment and the provided data set
-- features_info.txt - refer to this for detailed discussion of the features/variables in the data
+The following two files in the root of the dataset directory were used for reference only:
+- README.txt - provides details of the experiment and the provided dataset
+- features_info.txt - provides detailed discussion of the features/variables in the dataset
 
-All other files (e.g., inertial signals) in the dataset were ignored as they were unnecessary for the tidy data of averages.
+All other files (e.g., inertial signals) in the dataset were ignored as they were unnecessary for calculating the averages of the means and standard deviations.
 
-##Creating the tidy datafile
+##Creating the tidy data file
 
 ###Guide to create the tidy data file
 1. First, the dataset was downloaded from [here.](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
-2. A run_analysis project was created in RStudio
-3. The dataset was unzipped and installed below in the run_analysis project directory.
-4. The run_analysis function was run to create the averaged tidy dataset.
+2. A run_analysis project was created in RStudio.
+3. The dataset was unzipped and installed underneath the run_analysis project directory.
+4. The run_analysis function was run to create the averaged tidy data file (tidy_data.txt).
 
 Notes:
-- run_analysis takes no parameters. It expects the HAR dataset to be unzipped in the directory from which it is run.
-- More information on what run_analysis does can be found in the [README.txt.](https://github.com/tbudd/run_analysis/blob/master/README.md)
+- run_analysis() takes no parameters. It expects the HAR dataset to be unzipped in the directory from which it is run.
+- More information on what run_analysis() does can be found in the [README.txt.](https://github.com/tbudd/run_analysis/blob/master/README.md)
 - The tidy data output is in the wide form (unstacked), where each variable attribute for a subject is in a separate column.
 
 ###Cleaning of the data
-run_analysis computes the average of the mean() and std() variables in the UCI HAR dataset per the steps below: 
+run_analysis() computes the average of the mean() and std() variables in the UCI HAR dataset per the steps below: 
 
 1. It combines the subject and activity variables with each of the test and training tables. 
 2. It combines the test and training tables row-wise.
-3. It then extracts only the mean() and st() variables (columns) for averaging.
+3. It then extracts only the mean() and std() variables (columns) for averaging.
 4. It uses the features.txt file to give the columns descriptive names.
 5. It joins the result of step 4 on the activity_labels.txt file to replace the numeric activities with the text descriptions.
 6. It aggregates the result of step 5 by subject and activity, returning the averages of the columns in the result table.
@@ -69,17 +71,18 @@ Refer to the run_analysis [README.txt](https://github.com/tbudd/run_analysis/blo
 
 ##Description of the variables in the tiny_data.txt file
 
- - Dimensions of the dataset - 180 obs. of 68 variables
+ - Dimensions of the dataset - 180 observations of 68 variables
 
 ###Summary of the data
  
 The tidy data output is in the wide form (unstacked), where each variable attribute for a subject is in a separate column. Each of the variables (with the exceptions of subject and activity) is an average of smart phone accelerometer and gyroscope measurements grouped by subject number and activity.
 
-There are 30 subjects in the data set. The accelerometer and gyroscope averages are presented for each subject in each of the 6 activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING), sorted first by subject, then by activity.
+There are 30 subjects in the dataset. The accelerometer and gyroscope averages are presented for each subject in each of the 6 activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING), sorted first by subject, then by activity.
 
 Below is the str() of the dataset:
 
 'data.frame':	180 obs. of  68 variables:
+
  $ subject                    : int  1 2 3 4 5 6 7 8 9 10 ...
 
  $ activity                   : chr  "LAYING" "LAYING" "LAYING" "LAYING" ...
@@ -216,10 +219,10 @@ Below is the str() of the dataset:
 
  $ fBodyBodyGyroJerkMag-std() : num  -0.933 -0.989 -0.983 -0.983 -0.983 ...
  
-The variables are described in detail below. For further information, refer to the dataset README.txt and feature_info.txt files in the root directory of the HAR data.
+The variables are described in detail below. For further information, refer to the dataset README.txt and feature_info.txt files in the root directory of the HAR dataset.
 
 ###Variable 1 (subject)
-A numeric representation of the subject who's accelerometer and gyroscope measurements are in each row.
+A numeric representation of the subject whose accelerometer and gyroscope measurements are in each row.
 - Class:      integer
 - Values:     1-30
 - Units:      none
@@ -233,7 +236,7 @@ A character string representation of the activity the subject was performing dur
 - Schema:     none
 
 ###Variables 3-68 (named according to schema below)
-A number respresenting the processed specific measurement from either the accelerometer or gyroscope. For details on the processing refer to the dataset README.txt and feature_info.txt files in the root directory of the HAR data.
+A number respresenting the processed specific measurement from either the accelerometer or gyroscope. For details on the processing refer to the dataset README.txt and feature_info.txt files in the root directory of the HAR dataset.
 - Class:      num
 - Values:     -1 through 1
 - Units:      none, because the estimates of the measures were normalized to be between -1 and 1 inclusive.
@@ -243,17 +246,17 @@ Schema notes:
 
 \<domain\> one letter, t for time domain, f for frequency domain
 
-\<acceleration vector\> either Body or Gravity for either the body or gravity component of the acceleration signal respectively
+\<acceleration vector\> either Body or Gravity for either the body or gravity component of the acceleration signal, respectively
 
 \<sensor\> either Acc for accelerometer or Gyro for gyroscope
 
-\<specific measure\> (optional, either Jerk or Mag or both or none) Jerk is the derivative of acceleration with respect to time. Mag is the magnitude of the X,Y,Z vectors for the measure
+\<specific measure\> (optional, either Jerk or Mag or both or none) Jerk is the derivative of acceleration with respect to time. Mag is the magnitude of the X,Y,Z vectors for the measure.
 
-\<function\> either mean() or std() for the mean value or standard deviation respectively. Only columns ending in mean() and std() were included in the result, because the assignment requested means and standard deviations of the measurements. MeanFreq() is defined in the frequency_infot.txt file as "the Weighted average of the frequency components to obtain a mean frequency," which is not exactly the same as mean.
+\<function\> either mean() or std() for the mean value or standard deviation, respectively. Only columns ending in mean() and std() were included in the result, because the assignment requested only means and standard deviations of the measurements. For example, MeanFreq() was not used, because MeanFreq() is defined in the frequency_info.txt file as "the weighted average of the frequency components to obtain a mean frequency," which is not the simple mean.
 
-\<axis\> X,Y,Z depending on the direction of the force vector. Specific functions ending in Mag do not have an X,Y, or Z suffix, because the magnitude is a scalar.
+\<axis\> X,Y,or Z depending on the direction of the force vector. Specific functions ending in Mag do not have an X,Y, or Z suffix, because the magnitude is a scalar.
 
 ##Sources
-This codebook was created using the "Codebook Template" from the "Data Science Specialization" website, ["Getting and Cleaning Data" page](http://datasciencespecialization.github.io/getclean/)
+This codebook was created using the "Codebook Template" from the "Data Science Specialization" website, ["Getting and Cleaning Data" page.](http://datasciencespecialization.github.io/getclean/)
 
 
