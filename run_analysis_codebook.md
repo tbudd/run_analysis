@@ -25,7 +25,7 @@ The HAR dataset is a collection of accelerometer and gyroscope measurements from
 Collection of the raw data is described in detail under the Data Set Information on the [HAR site.](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 ###Notes on the original (raw) data 
-The raw data set was downloaded from [here.](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+The raw dataset was downloaded from [here.](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
 Eight files were processed from the raw data to create the tidy data with averages:
 - activity_labels.txt - contains the text descriptions of the activities and an index column 
@@ -254,9 +254,13 @@ Schema notes:
 
 \<function\> either mean() or std() for the mean value or standard deviation, respectively. Only columns ending in mean() and std() were included in the result, because the assignment requested only means and standard deviations of the measurements. For example, MeanFreq() was not used, because MeanFreq() is defined in the frequency_info.txt file as "the weighted average of the frequency components to obtain a mean frequency," which is not the simple mean.
 
-\<axis\> X,Y,or Z depending on the direction of the force vector. Specific functions ending in Mag do not have an X,Y, or Z suffix, because the magnitude is a scalar.
+\<axis\> X,Y,or Z depending on the direction of the force vector. Specific measures that include Mag do not have an X,Y, or Z suffix, because the magnitude is a scalar.
 
 ##Sources
+The assignment uses data from the [Human Activity Recognition (HAR) Using Smart Phones Data Set.](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+
+The raw dataset was downloaded from [here.](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+
 This codebook was created using the "Codebook Template" from the "Data Science Specialization" website, ["Getting and Cleaning Data" page.](http://datasciencespecialization.github.io/getclean/)
 
 
