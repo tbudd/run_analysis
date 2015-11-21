@@ -5,29 +5,31 @@ date: "November 13, 2015"
 output: html_document
 ---
 
-run_analysis() uses the "Human Activity Recognition (HAR) Using Smartphones Dataset"" from here: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+run_analysis() uses the "Human Activity Recognition (HAR) Using Smartphones Dataset" from [here:] (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+
+The HAR dataset is a collection of accelerometer and gyroscope measurements from subjects wearing a smartphone on their waists while doing various activities.
 
 run_analysis() assumes all of the files are in ".\UCI HAR Dataset" in the original file heirarchy.
 
-A full description of the HAR project is here:
-http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+A full description of the HAR project is [here:](
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
-Additional details are provided in the README.txt file included at the root of the provided data set.
+Additional details are provided in the README.txt and features_info.txt files included at the root of the provided data set.
 
-run_analysis computes the average of the mean() and std() variables in the UCI HAR dataset per the steps below: 
+run_analysis() computes the average of the mean() and std() variables in the UCI HAR dataset per the steps below: 
 
 1. It combines the subject and activity variables with each of the test and training tables. 
-    The subject and activity variables are in the subject_XXXX.txt and activity_labels.txt, respectively, where XXXX is either "test" or "train" depending on whether the file corresponds to the "test" or "training" data, respectively. 
-    The result is a test table with the corresponding subject and activity columns, and a training table with the appropriate subject and activity columns.
-2. It combines the test and training tables row-wise, that is appending the test rows to the training table.
+    The subject and activity variables are in subject_XXXX.txt and activity_labels.txt, respectively, where XXXX is either "test" or "train" depending on whether the file corresponds to the "test" or "training" data, respectively. 
+    The result is a test table with the corresponding subject and activity columns and a training table with the appropriate subject and activity columns.
+2. It combines the test and training tables row-wise, that is, appending the test rows to the training table.
  It then extracts only the mean() and st() variables (columns) for averaging.
-3. Since the columns in the original data are unamed, it uses the features.txt file to give the columns descriptive names.
-4. It joins the result of step 4 on the activity_labels.txt file to replace the numeric activities with the text descriptions.
-5. It aggregates the result of step 5 by subject and activity, returning the averages of the columns in the result table.
-6. Finally, prints the result of step 6 to a file (tidy_data.txt) and returns the result as well.
+3. Since the columns in the original data are unamed, it uses the features.txt file (containing the feature names) to give the columns descriptive names.
+4. It joins the result of step 3 with the activity_labels.txt file (using the numeric activity index) to replace the numeric activities with the activity text descriptions.
+5. It aggregates the result of step 4 by subject and activity, returning the averages of the columns in the result table.
+6. Finally, it prints the result of step 5 to a wide-form tidy file (tidy_data.txt) and returns the result as well.
 
 Notes:
-- Inertial data were not included from the dataset, because they were not necessary to calculate the averages of the means and standard deviations.
+- Inertial data (included in the HAR dataset) were not included from the dataset, because they were not necessary to calculate the averages of the means and standard deviations.
 
 - Only columns ending in mean() and std() were included in the result, because the assignment requested means and standard deviations of the measurements. MeanFreq() is defined in the frequency_infot.txt file as "the Weighted average of the frequency components to obtain a mean frequency," which is not exactly the same as mean.
 
