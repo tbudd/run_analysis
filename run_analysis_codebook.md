@@ -239,6 +239,7 @@ A number respresenting the processed specific measurement from either the accele
 - Schema:     \<domain\>\<acceleration vector\>\<sensor\>\<specific measure\>'-'\<function\>-\<axis\>
 
 Schema notes:
+
 \<domain\> one letter, t for time domain, f for frequency domain
 
 \<acceleration vector\> either Body or Gravity for either the body or gravity component of the acceleration signal respectively
