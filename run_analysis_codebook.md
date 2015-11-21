@@ -8,6 +8,8 @@ output:
 ---
 
 ## Project Description
+The Coursera page on which the assignment is based is [here.](https://class.coursera.org/getdata-034/human_grading)
+
 The assignment uses data from the [Human Activity Recognition (HAR) Using Smart Phones Data Set.](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 The data from the HAR project are cleaned and made tidy. Then the averages of the mean() and std() columns are returned grouped by subject (participant) and activity.
@@ -257,6 +259,8 @@ Schema notes:
 \<axis\> X,Y,or Z depending on the direction of the force vector. Specific measures that include Mag do not have an X,Y, or Z suffix, because the magnitude is a scalar.
 
 ##Sources
+The Coursera page on which the assignment is based is [here.](https://class.coursera.org/getdata-034/human_grading)
+
 The assignment uses data from the [Human Activity Recognition (HAR) Using Smart Phones Data Set.](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 The raw dataset was downloaded from [here.](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
