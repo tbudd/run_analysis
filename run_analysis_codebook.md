@@ -27,7 +27,7 @@ The raw data set was downloaded from [here.](https://d396qusza40orc.cloudfront.n
 
 Eight files were processed from the raw data to create the tidy data with averages:
 - activity_labels.txt - contains the test descriptions of the activities and an index column 
-- features.txt - contains the text descriptions of the features (accelerometer measurements) and an index column
+- features.txt - contains the text descriptions of the features (accelerometer and gyroscope measurements) and an index column
 - subject_train.txt - the subject #s corresponding to the training data observations
 - y_train.txt - the activity #s corresponding to what the subject was doing during each training data observation 
 - x_train.txt - the columns correspond to the features in features.txt. Rows are training data observations
@@ -72,9 +72,9 @@ Refer to the run_analysis [README.txt](https://github.com/tbudd/run_analysis/blo
  - Dimensions of the dataset - 180 obs. of 68 variables
  - Summary of the data:
  
-The tidy data output is in the wide form (unstacked), where each variable attribute for a subject is in a separate column. Each of the variables (with the exceptions of subject and activity) is an average of smart phone accelerometer measurements grouped by subject number and activity.
+The tidy data output is in the wide form (unstacked), where each variable attribute for a subject is in a separate column. Each of the variables (with the exceptions of subject and activity) is an average of smart phone accelerometer and gyroscope measurements grouped by subject number and activity.
 
-There are 30 subjects in the data set. The accelerometer averages are presented for each subject in each of the 6 activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING), sorted first by subject, then by activity.
+There are 30 subjects in the data set. The accelerometer and gyroscope averages are presented for each subject in each of the 6 activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING), sorted first by subject, then by activity.
 
 'data.frame':	180 obs. of  68 variables:
  $ subject                    : int  1 2 3 4 5 6 7 8 9 10 ...
@@ -149,18 +149,33 @@ There are 30 subjects in the data set. The accelerometer averages are presented 
 The variables are described in detail below. For further information, refer to the dataset README.txt and feature_info.txt files.
 
 ###Variable 1 (subject)
-A numeric representation of the subject who's accelerometer measurements are in each row.
-- Class:      numeric
+A numeric representation of the subject who's accelerometer and gyroscope measurements are in each row.
+- Class:      integer
 - Values:     1-30
 - Units:      none
 - Schema:     none
 
 ###Variable 2 (activity)
-A character string representation of the activity the subject was performing during the accelerometer measurements.
+A character string representation of the activity the subject was performing during the accelerometer and gyroscope measurements.
 - Class:      chr
 - Values:     WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 - Units:      none
 - Schema:     none
+
+###Variables 3-68 (named according to schema below)
+A character string representation of the activity the subject was performing during the accelerometer and gyroscope measurements.
+- Class:      num
+- Values:     -1 through 1
+- Units:      none???
+- Schema:     <domain><acceleration vector><sensor><specific measure>'-'<function>-<axis>
+
+Schema notes:
+<domain> one letter, t for time domain, f for frequency domain
+<acceleration vector> either Body or Gravity for either the body or gravity component of the acceleration signal respectively
+<sensor> either Acc for accelerometer or Gyro for gyroscope
+<specific measure> (optional, either Jerk or MAg or both or none) Jerk is the derivative of acceleration with respect to time. Mag is the magnitude of the X,Y,Z vectors for the measure
+<function> either mean() or std() for the mean value or standard deviation respectively
+<axis> X,Y,Z depending on the direction of the force vector. Specific functions ending in Mag do not have an X,Y, or Z suffix, because the magnitude is a scalar.
 
 ##Sources
 This codebook was created using the "Codebook Template" from the "Data Science Specialization" website, ["Getting and Cleaning Data" page](http://datasciencespecialization.github.io/getclean/)
