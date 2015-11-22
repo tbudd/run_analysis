@@ -242,7 +242,7 @@ A number respresenting the processed specific measurement from either the accele
 - Class:      num
 - Values:     -1 through 1
 - Units:      none, because the estimates of the measures were normalized to be between -1 and 1 inclusive.
-- Schema:     \<domain\>\<acceleration vector\>\<sensor\>\<specific measure\>\<function\><axis\>
+- Schema:     \<domain\>\<acceleration vector\>\<sensor\>\<specific measure\>\<function\>\<axis\>
 
 Schema notes:
 
